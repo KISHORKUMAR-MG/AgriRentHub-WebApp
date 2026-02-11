@@ -1,0 +1,26 @@
+{
+  "name": "farmshare-equipment-rental",
+  "version": "1.0.0",
+  "description": "Agricultural Equipment Rental System for connecting farmers with equipment rental services",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "agriculture",
+    "equipment",
+    "rental",
+    "farming"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

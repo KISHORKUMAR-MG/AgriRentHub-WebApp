@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmShare - Agricultural Equipment Rental</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">🚜</span>
+                <span class="brand-name">FarmShare</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#equipment" class="nav-link">Equipment</a></li>
+                <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                <li><button id="loginBtn" class="btn btn-primary">Login</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Connecting Farmers with Equipment</h1>
+                <p>Rent tractors, harvesters, and farming tools at affordable rates. Empowering small farmers with accessible technology.</p>
+                <button class="btn btn-large" onclick="scrollToEquipment()">Browse Equipment</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Listing Section -->
+    <section id="equipment" class="equipment-section">
+        <div class="container">
+            <h2>Available Equipment</h2>
+            <div class="filters">
+                <select id="categoryFilter" class="filter-select">
+                    <option value="all">All Categories</option>
+                    <option value="Tractor">Tractors</option>
+                    <option value="Harvester">Harvesters</option>
+                    <option value="Plough">Ploughs</option>
+                    <option value="Sprayer">Sprayers</option>
+                </select>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search equipment...">
+            </div>
+            <div id="equipmentGrid" class="equipment-grid">
+                <!-- Equipment cards will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-section hidden">
+        <div class="container">
+            <h2>Farmer Dashboard</h2>
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3 id="activeBookings">0</h3>
+                    <p>Active Bookings</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalBookings">0</h3>
+                    <p>Total Bookings</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalSpent">₹0</h3>
+                    <p>Total Spent</p>
+                </div>
+            </div>
+            <div class="bookings-table">
+                <h3>My Bookings</h3>
+                <table id="bookingsTable">
+                    <thead>
+                        <tr>
+                            <th>Equipment</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Status</th>
+                            <th>Total Cost</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingsBody">
+                        <!-- Bookings will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book Equipment</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label>Equipment:</label>
+                    <input type="text" id="modalEquipmentName" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Start Date:</label>
+                    <input type="date" id="startDate" required>
+                </div>
+                <div class="form-group">
+                    <label>End Date:</label>
+                    <input type="date" id="endDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Location:</label>
+                    <input type="text" id="location" placeholder="Your farm location" required>
+                </div>
+                <div class="form-group">
+                    <label>Total Cost: <span id="totalCost">₹0</span></label>
+                </div>
+                <button type="submit" class="btn btn-primary">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Farmer Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" id="farmerName" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone:</label>
+                    <input type="tel" id="farmerPhone" placeholder="Enter phone number" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
